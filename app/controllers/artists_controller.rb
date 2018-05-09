@@ -1,7 +1,6 @@
 class ArtistsController < ApplicationController
   def index
     @artists = Artist.all.order(name: @preferences.artist_sort_order)
-    binding.pry
   end
 
   def show
@@ -9,6 +8,7 @@ class ArtistsController < ApplicationController
   end
 
   def new
+    binding.pry
     if @preferences.allow_create_artists
       @artist = Artist.new
     else
