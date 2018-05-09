@@ -5,6 +5,7 @@ class SongsController < ApplicationController
       if @artist.nil?
         redirect_to artists_path, alert: "Artist not found"
       else
+        binding.pry
         @songs = @artist.songs.order(name: Preference.last.song_sort_order)
       end
     else
