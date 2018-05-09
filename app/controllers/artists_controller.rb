@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.all.order(name: @preferences.last.artist_sort_order)
+    @artists = Artist.all.order(name: Preference.last.artist_sort_order)
   end
 
   def show
@@ -9,7 +9,7 @@ class ArtistsController < ApplicationController
 
   def new
     binding.pry
-    if @preferences.allow_create_artists
+    if Preference.last.allow_create_artists
       @artist = Artist.new
     else
       redirect_to artists_path, alert: "You're not allowed to create new artists."
