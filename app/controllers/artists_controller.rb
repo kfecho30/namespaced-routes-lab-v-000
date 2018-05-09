@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.all.order(name: @preferences.artist_sort_order)
+    @artists = Artist.all.order(name: @preferences.last.artist_sort_order)
   end
 
   def show
