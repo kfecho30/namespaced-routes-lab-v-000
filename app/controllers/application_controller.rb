@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_preferences!, only: [:index, :new]
 
-  def set_preferences
+  def set_preferences!
     @preference = Preference.first
   end
 end
